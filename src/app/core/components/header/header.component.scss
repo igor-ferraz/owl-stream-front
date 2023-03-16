@@ -1,0 +1,41 @@
+.header {
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo-container {
+        .logo {
+            width: 15rem;
+            margin-left: 3rem;
+        }
+    }
+
+    .categories {
+        ul {
+            list-style: none;
+            display: inline-flex;
+            margin-block: 0;
+            padding-inline: 0;
+            width: 40rem;
+            justify-content: space-evenly;
+            text-transform: uppercase;
+            font-size: 2rem;
+
+            a {
+                color: #000;
+            }
+
+            a:hover {
+                color: #8233c0;
+            }
+        }
+    }
+
+    .access-btn-container {
+        width: 15rem;
+        padding-right: 3rem;
+        text-align: right;
+    }
+}

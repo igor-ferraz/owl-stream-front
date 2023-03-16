@@ -1,0 +1,69 @@
+.page {
+    min-height: 100vh;
+}
+
+.access-btn {
+    font-size: 1.3rem;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    top: 7rem;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #fafafa;
+
+    .landing-bg {
+        height: 40rem;
+        position: absolute;
+        bottom: 0;
+        filter: brightness(1.2) grayscale(1);
+        z-index: 10;
+    }
+
+    .square {
+        width: 55rem;
+        height: 40rem;
+        background-color: #8233c0;
+        position: absolute;
+        bottom: 5rem;
+        z-index: 0;
+    }
+
+    .impact-text {
+        position: absolute;
+        font-size: 3rem;
+        right: 0;
+        bottom: 10rem;
+        margin-right: -10rem;
+        background-color: #fafafa;
+        padding: 1rem;
+    }
+
+    .description-text {
+        position: absolute;
+        left: 3rem;
+        top: 10rem;
+        font-size: 2rem;
+        width: 23rem;
+        z-index: 10;
+
+        p {
+            background-color: #fafafa;
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        .access-btn {
+            background-color: #fafafa;
+        }
+    }
+
+    .access-library-container {
+        position: absolute;
+        bottom: 5rem;
+        right: 3rem;
+    }
+}
