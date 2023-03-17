@@ -13,7 +13,6 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    background-color: #fafafa;
 
     .landing-bg {
         height: 40rem;
@@ -38,7 +37,6 @@
         right: 0;
         bottom: 10rem;
         margin-right: -10rem;
-        background-color: #fafafa;
         padding: 1rem;
     }
 
@@ -51,13 +49,8 @@
         z-index: 10;
 
         p {
-            background-color: #fafafa;
             padding: 1rem 0;
             margin: 0;
-        }
-
-        .access-btn {
-            background-color: #fafafa;
         }
     }
 

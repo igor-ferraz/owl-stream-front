@@ -25,6 +25,7 @@ a {
     color: #8233c0;
     text-transform: uppercase;
     transition: all 0.3s ease-out;
+    background: none;
 }
 
 .access-btn:hover {
@@ -45,4 +46,8 @@ a {
 .access-link:hover {
     background-position: 100% 100%;
     background-size: 100% 2px;
+}
+
+.bg-default {
+    background-color: #fafafa;
 }
