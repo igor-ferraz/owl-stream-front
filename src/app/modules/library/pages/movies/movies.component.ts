@@ -10,6 +10,8 @@ export class MoviesComponent {
     public categories: Cinelist[] = [];
     public showLeftArrow = true;
 
+    private defaultScrollSize = 400;
+
     constructor() { }
 
     ngOnInit(): void {
@@ -72,47 +74,36 @@ export class MoviesComponent {
             });
     }
 
-    public next(elementId: string): void {
+    private scrollLeft(elementId: string, direction: '+' | '-'): void {
         let element = document.getElementById(elementId);
 
-        console.log('Atual', element?.scrollLeft)
-        console.log('Próximo', element?.scrollWidth)
+        let scrollWidth = element?.scrollWidth as number;
+        let clientWidth = element?.clientWidth as number;
+        let scrollLeft = element?.scrollLeft as number;
 
-        if (element?.scrollLeft === (element?.scrollWidth as number) - (element?.clientWidth as number)) {
+        if (direction === '+') {
+            let scrollSize = (scrollLeft === scrollWidth - clientWidth) ? 0 : (scrollLeft + this.defaultScrollSize);
+
             element?.scroll({
-                left: 0,
+                left: scrollSize,
                 behavior: 'smooth'
             });
         }
         else {
+            let scrollSize = (scrollLeft === 0) ? (scrollWidth - clientWidth) : (scrollLeft - this.defaultScrollSize);
+
             element?.scroll({
-                left: element.scrollLeft + 350,
+                left: scrollSize,
                 behavior: 'smooth'
             });
         }
+    }
 
-        // this.showLeftArrow = true;
+    public next(elementId: string): void {
+        this.scrollLeft(elementId, '+');
     }
 
     public previous(elementId: string): void {
-        let element = document.getElementById(elementId);
-
-        if (element?.scrollLeft === 0) {
-            element?.scroll({
-                left: element?.scrollWidth - element?.clientWidth,
-                behavior: 'smooth'
-            });
-        }
-        else {
-            element?.scroll({
-                left: element.scrollLeft - 350,
-                behavior: 'smooth'
-            });
-        }
-
-
-        // if (element?.scrollLeft !== undefined && element?.scrollLeft <= 350) {
-        //     this.showLeftArrow = true;
-        // }
+        this.scrollLeft(elementId, '-');
     }
 }
