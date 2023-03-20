@@ -3,8 +3,13 @@
         <h1>{{ title }}</h1>
     </div>
     <div class="category-body">
-        <div class="arrow-container arrow-container-left">
-            <a (click)="scroll(id, 'left')">◄</a>
+        <div
+            class="arrow-container arrow-container-left"
+            [ngClass]="{ 'opacity-0': arrowLeftHidden }"
+        >
+            <a (click)="scroll(id, 'left')">
+                <i class="fa fa-chevron-left"></i>
+            </a>
         </div>
         <div class="movie-list" [id]="movieListIdSuffix + id">
             <div class="movie-container" *ngFor="let movie of movies">
@@ -14,7 +19,9 @@
             </div>
         </div>
         <div class="arrow-container arrow-container-right">
-            <a (click)="scroll(id, 'right')">►</a>
+            <a (click)="scroll(id, 'right')">
+                <i class="fa fa-chevron-right"></i>
+            </a>
         </div>
     </div>
 </div>

@@ -1,3 +1,4 @@
+/* General style */
 html,
 body {
     margin: 0;
@@ -18,6 +19,7 @@ a {
     text-transform: uppercase;
 }
 
+/* Components */
 .access-btn {
     padding: 0.5rem;
     border: 2px solid #8233c0;
@@ -47,6 +49,11 @@ a {
     background-size: 100% 2px;
 }
 
+/* Utility classes */
 .bg-default {
     background-color: #fafafa;
+}
+
+.opacity-0 {
+    opacity: 0;
 }

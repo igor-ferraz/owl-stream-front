@@ -13,6 +13,7 @@ export class MoviesCarouselComponent {
 
     public loading = true;
     public movieListIdSuffix = 'movieList-';
+    public arrowLeftHidden = true;
 
     private defaultScrollSize = 400;
 
@@ -40,5 +41,7 @@ export class MoviesCarouselComponent {
             left: scrollSize,
             behavior: 'smooth'
         });
+
+        this.arrowLeftHidden = false;
     }
 }
