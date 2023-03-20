@@ -8,9 +8,6 @@ import { Cinelist } from 'src/app/core/models/cinelist.model';
 })
 export class MoviesComponent {
     public categories: Cinelist[] = [];
-    public showLeftArrow = true;
-
-    private defaultScrollSize = 400;
 
     constructor() { }
 
@@ -128,38 +125,5 @@ export class MoviesComponent {
                     }
                 ]
             });
-    }
-
-    private scrollLeft(elementId: string, direction: '+' | '-'): void {
-        let element = document.getElementById(elementId);
-
-        let scrollWidth = element?.scrollWidth as number;
-        let clientWidth = element?.clientWidth as number;
-        let scrollLeft = element?.scrollLeft as number;
-
-        if (direction === '+') {
-            let scrollSize = (scrollLeft === scrollWidth - clientWidth) ? 0 : (scrollLeft + this.defaultScrollSize);
-
-            element?.scroll({
-                left: scrollSize,
-                behavior: 'smooth'
-            });
-        }
-        else {
-            let scrollSize = (scrollLeft === 0) ? (scrollWidth - clientWidth) : (scrollLeft - this.defaultScrollSize);
-
-            element?.scroll({
-                left: scrollSize,
-                behavior: 'smooth'
-            });
-        }
-    }
-
-    public next(elementId: string): void {
-        this.scrollLeft(elementId, '+');
-    }
-
-    public previous(elementId: string): void {
-        this.scrollLeft(elementId, '-');
     }
 }

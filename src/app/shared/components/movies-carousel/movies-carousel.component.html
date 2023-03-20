@@ -1,0 +1,20 @@
+<div class="category-section">
+    <div class="category-title">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="category-body">
+        <div class="arrow-container arrow-container-left">
+            <a (click)="scroll(id, 'left')">◄</a>
+        </div>
+        <div class="movie-list" [id]="movieListIdSuffix + id">
+            <div class="movie-container" *ngFor="let movie of movies">
+                <h2>{{ movie.title }}</h2>
+                <div class="movie-cover"></div>
+                <div class="movie-info"></div>
+            </div>
+        </div>
+        <div class="arrow-container arrow-container-right">
+            <a (click)="scroll(id, 'right')">►</a>
+        </div>
+    </div>
+</div>

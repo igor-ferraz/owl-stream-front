@@ -1,5 +1,5 @@
 <div class="bg-default">
-    <div class="category-section" *ngFor="let category of categories">
+    <!-- <div class="category-section" *ngFor="let category of categories">
         <div class="category-title">
             <h1>{{ category.name }}</h1>
         </div>
@@ -24,5 +24,11 @@
                 <a (click)="next('movielist-' + category.id)">►</a>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <os-movies-carousel
+        *ngFor="let category of categories"
+        [title]="category.name"
+        [movies]="category.movies"
+    ></os-movies-carousel>
 </div>
