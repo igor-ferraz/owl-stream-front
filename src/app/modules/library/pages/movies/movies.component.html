@@ -1,31 +1,4 @@
 <div class="bg-default">
-    <!-- <div class="category-section" *ngFor="let category of categories">
-        <div class="category-title">
-            <h1>{{ category.name }}</h1>
-        </div>
-        <div class="category-body">
-            <div
-                class="arrow-container arrow-container-left"
-                *ngIf="showLeftArrow"
-            >
-                <a (click)="previous('movielist-' + category.id)">◄</a>
-            </div>
-            <div class="movie-list" [id]="'movielist-' + category.id">
-                <div
-                    class="movie-container"
-                    *ngFor="let movie of category.movies"
-                >
-                    <h2>{{ movie.title }}</h2>
-                    <div class="movie-cover"></div>
-                    <div class="movie-info"></div>
-                </div>
-            </div>
-            <div class="arrow-container arrow-container-right">
-                <a (click)="next('movielist-' + category.id)">►</a>
-            </div>
-        </div>
-    </div> -->
-
     <os-movies-carousel
         *ngFor="let category of categories"
         [title]="category.name"
