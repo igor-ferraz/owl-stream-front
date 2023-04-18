@@ -1,0 +1,82 @@
+<div class="bg-default container">
+    <div class="square">
+        <h1>Crie sua conta<span class="square-dot">.</span></h1>
+        <form class="form-container" action="submit" ngSubmit="signUp()">
+            <div class="input-group-line">
+                <div class="input-group">
+                    <label for="name">Nome</label>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Nome"
+                        autofocus
+                    />
+                </div>
+                <div class="input-group">
+                    <label for="surname">Sobrenome</label>
+                    <input type="text" name="surname" placeholder="Sobrenome" />
+                </div>
+            </div>
+
+            <div class="input-group-line">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" placeholder="E-mail" />
+                </div>
+                <div class="input-group">
+                    <label for="email-confirm">Confirme seu e-mail</label>
+                    <input
+                        type="email"
+                        name="email-confirm"
+                        placeholder="Confirme seu e-mail"
+                    />
+                </div>
+            </div>
+
+            <div class="input-group-line">
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Senha"
+                    />
+                </div>
+                <div class="input-group">
+                    <label for="password-confirmation"
+                        >Confirme sua senha</label
+                    >
+                    <input
+                        type="password"
+                        name="password-confirmation"
+                        placeholder="Confirme sua senha"
+                    />
+                </div>
+            </div>
+
+            <div class="input-group-line">
+                <div class="input-group">
+                    <label for="birthdate">Data de nascimento</label>
+                    <input
+                        type="text"
+                        name="birthdate"
+                        placeholder="Data de nascimento"
+                    />
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gênero</label>
+                    <input type="text" name="gender" placeholder="Gênero" />
+                </div>
+            </div>
+
+            <div class="input-group-line">
+                <div class="back-container">
+                    <a class="access-link color-default" (click)="back()">
+                        Voltar
+                    </a>
+                </div>
+                <button type="submit" class="access-btn">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>

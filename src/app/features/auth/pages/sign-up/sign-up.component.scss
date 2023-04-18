@@ -1,0 +1,50 @@
+.square-dot {
+    font-size: 1.5em;
+}
+
+.container {
+    width: 100%;
+    min-height: calc(100vh - 6rem - 2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .square {
+        padding: 3rem;
+        background-color: #fff;
+        box-shadow: 50px 50px #8233c0;
+        border: 1px solid #eee;
+
+        .form-container {
+            display: grid;
+            gap: 1rem;
+
+            .input-group-line {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+
+                label {
+                    display: none;
+                }
+            }
+
+            .input-group-line:last-child {
+                .back-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                button {
+                    padding: 1rem;
+                }
+            }
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    }
+}

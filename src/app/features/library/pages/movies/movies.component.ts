@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Cinelist } from 'src/app/core/models/cinelist.model';
+import { Cinelist } from 'src/app/shared/models/cinelist.model';
 
 @Component({
     selector: 'app-movies',

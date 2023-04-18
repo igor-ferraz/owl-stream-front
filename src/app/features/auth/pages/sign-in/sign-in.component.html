@@ -1,0 +1,32 @@
+<div class="bg-default container">
+    <form class="square" action="submit" ngSubmit="login()">
+        <h1>Acesse sua conta<span class="square-dot">.</span></h1>
+        <div class="input-container">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" placeholder="E-mail" autofocus />
+        </div>
+        <div class="input-container">
+            <label for="password">Senha</label>
+            <input type="password" name="password" placeholder="Senha" />
+        </div>
+        <button type="submit" class="access-btn">Entrar</button>
+        <div class="links-container">
+            <div class="access-link-container">
+                <p>Novo por aqui?</p>
+                <a routerLink="/auth/sign-up" class="access-link color-default"
+                    >Crie uma conta</a
+                >
+            </div>
+            <div class="access-link-container text-right">
+                <p>Precisa de ajuda?</p>
+                <a
+                    href
+                    routerLink="/auth/forgotten-password"
+                    class="access-link color-default"
+                    >Redefina sua senha</a
+                >
+            </div>
+        </div>
+    </form>
+    <div class="square-purple"></div>
+</div>
