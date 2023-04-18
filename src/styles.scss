@@ -16,7 +16,6 @@ h4 {
 
 a {
     text-decoration: none;
-    font-size: 1.2rem;
 }
 
 a,
@@ -52,9 +51,21 @@ button {
 }
 
 /* Components */
+.content-wrapper {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 6rem;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    @extend .bg-default;
+}
+
 .access-btn {
     padding: 0.5rem;
     border: 2px solid #8233c0;
+    font-size: 1.2rem;
     color: #8233c0;
     text-transform: uppercase;
     transition: all 0.3s ease-out;
@@ -75,6 +86,7 @@ button {
     background-size: 0% 2px;
     background-repeat: no-repeat;
     transition: background-size 0.3s, background-position 0s 0.3s;
+    font-size: 1.3rem;
     color: #000;
     cursor: pointer;
 }
@@ -84,6 +96,42 @@ button {
     background-position: 100% 100%;
     background-size: 100% 2px;
     color: #8233c0;
+}
+
+.square-dot {
+    @extend .color-default;
+    @extend .font-math;
+    font-size: 1.5em;
+}
+
+.card {
+    padding: 3rem;
+    background-color: #fff;
+    box-shadow: 50px 50px #8233c0;
+    border: 1px solid #eee;
+    display: grid;
+    gap: 1rem;
+
+    .card-header .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-footer,
+    .card-body {
+        display: grid;
+        gap: 1rem;
+    }
+}
+
+.form {
+    .input-wrapper {
+        display: grid;
+        gap: 0.5rem;
+
+        label {
+            display: none;
+        }
+    }
 }
 
 /* Utility classes */
@@ -113,9 +161,4 @@ button {
 
 .opacity-0 {
     opacity: 0;
-}
-
-.square-dot {
-    @extend .color-default;
-    @extend .font-math;
 }
