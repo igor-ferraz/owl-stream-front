@@ -1,56 +1,6 @@
-/* General style */
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
+@import "utilities.scss";
 
-h1,
-h2,
-h3,
-h4 {
-    margin: 0;
-    font-weight: 200;
-    text-transform: uppercase;
-}
-
-a {
-    text-decoration: none;
-}
-
-a,
-button,
-a:hover,
-button:hover {
-    -webkit-appearance: none;
-    outline: none;
-}
-
-a:focus,
-input:focus,
-button:focus {
-    outline: #8233c0 double 1px;
-}
-
-input {
-    font-size: 1.2rem;
-    padding: 1rem;
-    border: 1.75px solid #555;
-    min-width: 20rem;
-    outline: 1px double transparent;
-    transition: outline-color 0.2s;
-}
-
-input:hover,
-input:focus {
-    outline-color: #8233c0;
-}
-
-button {
-    cursor: pointer;
-}
-
-/* Components */
+/* Reusable custom components */
 .content-wrapper {
     width: 100%;
     display: flex;
@@ -87,7 +37,7 @@ button {
     background-repeat: no-repeat;
     transition: background-size 0.3s, background-position 0s 0.3s;
     font-size: 1.3rem;
-    color: #000;
+    color: #8233c0;
     cursor: pointer;
 }
 
@@ -95,7 +45,7 @@ button {
 .access-link:focus {
     background-position: 100% 100%;
     background-size: 100% 2px;
-    color: #8233c0;
+    color: #8233c0 !important;
 }
 
 .square-dot {
@@ -132,33 +82,4 @@ button {
             display: none;
         }
     }
-}
-
-/* Utility classes */
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.color-default {
-    color: #8233c0;
-}
-
-.bg-default {
-    background-color: #fafafa;
-}
-
-.font-math {
-    font-family: math;
-}
-
-.opacity-0 {
-    opacity: 0;
 }
