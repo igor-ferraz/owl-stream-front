@@ -1,6 +1,12 @@
-<div class="header">
+<div
+    class="header"
+    [ngClass]="{
+        'header-small': size < breakpoint.Large,
+        'header-large': size >= breakpoint.Large
+    }"
+>
     <div class="logo-container">
-        <a href="">
+        <a routerLink="/">
             <img
                 class="logo"
                 src="assets/images/logos/logo-purple.svg"
@@ -9,23 +15,51 @@
         </a>
     </div>
 
-    <div class="categories">
+    <div class="categories" [hidden]="size < breakpoint.Large">
         <ul>
-            <li>
-                <a class="access-link" routerLink="/library/movies">Filmes</a>
-            </li>
-            <li>
-                <a class="access-link" routerLink="/library/movies?genres=4">
-                    Documentários
-                </a>
-            </li>
-            <li>
-                <a class="access-link" routerLink="/library/series">Séries</a>
+            <li *ngFor="let link of links">
+                <a class="access-link" routerLink="{{ link.url }}">{{
+                    link.name
+                }}</a>
             </li>
         </ul>
     </div>
 
-    <div class="access-btn-container">
-        <a href class="access-btn" routerLink="/auth/sign-in"> Entrar </a>
+    <div class="access-btn-container" [hidden]="size < breakpoint.Large">
+        <a href class="access-btn" routerLink="/auth/sign-in">Entrar</a>
     </div>
+
+    <button
+        type="button"
+        title="Ícone de menu"
+        class="menu-button"
+        [ngClass]="{ rotate: menuVisible }"
+        (click)="changeMenu()"
+        [hidden]="size >= breakpoint.Large"
+    >
+        <fa-icon [icon]="faBars" size="xl"></fa-icon>
+    </button>
+</div>
+
+<div
+    class="menu content-wrapper"
+    [ngClass]="{
+        visible: menuVisible,
+        'menu-medium': size === breakpoint.Medium
+    }"
+    [hidden]="size >= breakpoint.Small"
+>
+    <ul>
+        <li *ngFor="let link of links">
+            <button
+                type="button"
+                title="Botões de acesso do menu"
+                class="access-btn"
+                routerLink="{{ link.url }}"
+                (click)="changeMenu()"
+            >
+                {{ link.name }}
+            </button>
+        </li>
+    </ul>
 </div>

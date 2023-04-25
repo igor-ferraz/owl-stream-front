@@ -1,11 +1,83 @@
 .header {
-    padding: 1.5rem 3rem;
     display: flex;
     align-items: center;
+    box-shadow: 0px 5px 5px 0px #ddd;
+    z-index: 101;
+}
+
+.header-small {
+    padding: 1.5rem 1rem;
+    justify-content: center;
+    position: relative;
+
+    .logo {
+        width: 14rem;
+    }
+
+    .menu-button {
+        // width: 2.5rem;
+        position: absolute;
+        right: 1rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border: none;
+        background-color: transparent;
+        color: #8233c0;
+        transition: all 0.2s;
+    }
+
+    .menu-button.rotate {
+        border: 1px solid #8233c0;
+        transform: rotate(90deg);
+        outline: none;
+    }
+
+    .menu-button:hover {
+        background-color: #8233c0;
+        color: #fff;
+    }
+}
+
+.menu {
+    position: absolute;
+    right: 0;
+    width: 0;
+    z-index: 100;
+    transition: width 0.2s;
+    align-items: flex-start;
+    padding: 2rem 0;
+    overflow: hidden;
+    background-color: #fff;
+
+    ul {
+        list-style: none;
+        margin-block: 0;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        display: grid;
+        row-gap: 1rem;
+
+        li {
+            display: grid;
+        }
+    }
+}
+
+.menu.menu-medium {
+    max-width: 20rem;
+    transition: width 0.4s;
+}
+
+.menu.visible {
+    width: 100%;
+}
+
+.header-large {
+    padding: 1.5rem 3rem;
     justify-content: space-between;
 
-    .logo-container .logo,
-    .access-btn-container {
+    .access-btn-container,
+    .logo {
         width: 14rem;
     }
 
