@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <form class="form" action="submit" ngSubmit="login()">
-        <div class="card">
+        <div class="card" [ngClass]="{ small: size === breakpoint.Small }">
             <div class="card-header">
                 <h1 class="card-title">
                     Acesse sua conta<span class="square-dot">.</span>
@@ -14,6 +14,7 @@
                         name="email"
                         placeholder="E-mail"
                         autofocus
+                        [ngClass]="{ small: size === breakpoint.Small }"
                     />
                 </div>
                 <div class="input-wrapper">
@@ -22,6 +23,7 @@
                         type="password"
                         name="password"
                         placeholder="Senha"
+                        [ngClass]="{ small: size === breakpoint.Small }"
                     />
                 </div>
             </div>

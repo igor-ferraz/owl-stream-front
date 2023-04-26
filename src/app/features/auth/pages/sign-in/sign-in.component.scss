@@ -1,15 +1,17 @@
-.info-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: 1.2rem;
+.card {
+    .info-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 1.2rem;
 
-    .info {
-        p {
-            margin: 0.5rem 0;
+        .info {
+            p {
+                margin: 0.5rem 0;
+            }
         }
-    }
 
-    .info:nth-child(even) {
-        text-align: right;
+        .info:nth-child(even) {
+            text-align: right;
+        }
     }
 }

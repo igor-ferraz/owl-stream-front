@@ -42,6 +42,10 @@ input {
     min-width: 20rem;
     outline: 1px double transparent;
     transition: outline-color 0.2s;
+
+    &.small {
+        min-width: unset;
+    }
 }
 
 input:hover,
