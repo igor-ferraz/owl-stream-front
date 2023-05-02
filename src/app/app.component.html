@@ -1,2 +1,4 @@
-<os-header></os-header>
-<router-outlet></router-outlet>
+<os-header (onMenuVisbilityChange)="menuChanged($event)"></os-header>
+<div class="content-wrapper">
+    <router-outlet></router-outlet>
+</div>

@@ -34,7 +34,7 @@
         title="Ícone de menu"
         class="menu-button"
         [ngClass]="{ rotate: menuVisible }"
-        (click)="changeMenu()"
+        (click)="changeMenuVisibility()"
         [hidden]="size >= breakpoint.Large"
     >
         <fa-icon [icon]="faBars" size="xl"></fa-icon>
@@ -42,24 +42,30 @@
 </div>
 
 <div
-    class="menu content-wrapper"
+    id="menu-wrapper"
     [ngClass]="{
-        visible: menuVisible,
-        'menu-medium': size === breakpoint.Medium
+        'width-100': menuVisible
     }"
-    [hidden]="size >= breakpoint.Small"
 >
-    <ul>
-        <li *ngFor="let link of links">
-            <button
-                type="button"
-                title="Botões de acesso do menu"
-                class="access-btn"
-                routerLink="{{ link.url }}"
-                (click)="changeMenu()"
-            >
-                {{ link.name }}
-            </button>
-        </li>
-    </ul>
+    <div
+        class="menu"
+        [ngClass]="{
+            'width-100': menuVisible,
+            'menu-medium': size === breakpoint.Medium
+        }"
+    >
+        <ul>
+            <li *ngFor="let link of links">
+                <button
+                    type="button"
+                    title="Botões de acesso do menu"
+                    class="access-btn"
+                    routerLink="{{ link.url }}"
+                    (click)="changeMenuVisibility()"
+                >
+                    {{ link.name }}
+                </button>
+            </li>
+        </ul>
+    </div>
 </div>

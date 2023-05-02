@@ -1,7 +1,5 @@
-<div class="bg-default">
-    <os-movies-carousel
-        *ngFor="let category of categories"
-        [title]="category.name"
-        [movies]="category.movies"
-    ></os-movies-carousel>
-</div>
+<os-movies-carousel
+    *ngFor="let category of categories"
+    [title]="category.name"
+    [movies]="category.movies"
+></os-movies-carousel>

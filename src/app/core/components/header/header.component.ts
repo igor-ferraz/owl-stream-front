@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Breakpoint } from 'src/app/shared/models/responsive/breakpoint.enum';
@@ -9,6 +9,8 @@ import { Breakpoint } from 'src/app/shared/models/responsive/breakpoint.enum';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    @Output() onMenuVisbilityChange = new EventEmitter<boolean>();
+
     public faBars = faBars;
     public faUser = faUser;
     public breakpoint = Breakpoint;
@@ -75,7 +77,8 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    public changeMenu(): void {
+    public changeMenuVisibility(): void {
         this.menuVisible = !this.menuVisible;
+        this.onMenuVisbilityChange.emit(this.menuVisible);
     }
 }

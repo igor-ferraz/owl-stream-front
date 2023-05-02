@@ -1,6 +1,7 @@
 export enum Breakpoint {
     None = 0,
-    Small = 1,
-    Medium = 2,
-    Large = 3
+    XSmall = 1,
+    Small = 2,
+    Medium = 3,
+    Large = 4
 };
