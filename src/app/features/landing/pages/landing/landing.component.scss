@@ -1,43 +1,104 @@
-.main-image {
-    height: 40rem;
-    position: absolute;
-    bottom: 0;
-    filter: brightness(1.2) grayscale(1);
-    z-index: 10;
-}
+@import "/src/styles/utilities.scss";
 
-.square {
-    width: 55rem;
-    height: 40rem;
-    background-color: #8233c0;
-    position: absolute;
-    bottom: 5rem;
-    z-index: 0;
-}
-
-.impact-text {
-    position: absolute;
-    font-size: 3rem;
-    right: 0;
-    bottom: 10rem;
-    margin-right: -10rem;
-    padding: 1rem;
-
-    .square-dot {
-        font-size: inherit;
+.center-container {
+    &.small {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 2rem 1rem 0 1rem;
     }
-}
 
-.description-text {
-    position: absolute;
-    left: 3rem;
-    top: 10rem;
-    font-size: 2rem;
-    width: 23rem;
-    z-index: 10;
+    .description-text {
+        position: absolute;
+        left: 3rem;
+        top: 10rem;
+        font-size: 2rem;
+        width: 23rem;
+        z-index: 10;
 
-    p {
-        padding: 1rem 0;
-        margin: 0;
+        p {
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        &.medium {
+            width: 15rem;
+            font-size: 1.75rem;
+            padding: 2rem;
+            @extend .bg-default;
+
+            p {
+                padding-top: 0;
+            }
+        }
+
+        &.small {
+            font-size: 1.5rem;
+            position: unset;
+            text-align: center;
+
+            p {
+                padding: 1rem;
+            }
+        }
+    }
+
+    .square {
+        width: 55rem;
+        height: 40rem;
+        background-color: #8233c0;
+        position: absolute;
+        bottom: 5rem;
+        z-index: 0;
+
+        &.small {
+            width: 25rem;
+            height: 20rem;
+            position: relative;
+            bottom: unset;
+        }
+
+        &.medium {
+            height: 35rem;
+            text-align: center;
+        }
+
+        .impact-text {
+            position: absolute;
+            font-size: 3rem;
+            right: 0;
+            bottom: 10rem;
+            margin-right: -10rem;
+            padding: 1rem;
+
+            &.medium {
+                font-size: 2.5rem;
+            }
+
+            &.small {
+                display: none;
+            }
+
+            .square-dot {
+                font-size: inherit;
+            }
+        }
+
+        .main-image {
+            height: 40rem;
+            position: absolute;
+            bottom: 0;
+            filter: brightness(1.2) grayscale(1);
+            z-index: 10;
+
+            &.medium {
+                position: unset;
+            }
+
+            &.small {
+                width: 26rem;
+                height: auto;
+                left: -0.5rem;
+            }
+        }
     }
 }

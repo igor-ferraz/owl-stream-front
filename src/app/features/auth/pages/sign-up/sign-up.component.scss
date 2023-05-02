@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+
+    &.small {
+        grid-template-columns: 1fr;
+    }
 }
 
 .input-wrapper-line:last-child {

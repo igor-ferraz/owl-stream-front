@@ -1,26 +1,69 @@
-<div class="description-text">
-    <p class="bg-default">
-        Somos uma plataforma de streaming de filmes em domínio público.
-    </p>
-    <p class="bg-default" style="margin-bottom: 1rem">
-        Nosso objetivo é levar entretenimento e conhecimento para
-        <strong>todos</strong>.
-    </p>
-    <a class="access-btn" routerLink="/about">Saiba mais</a>
-</div>
+<div
+    class="center-container"
+    [ngClass]="{
+        small: size <= breakpoint.Small,
+        medium: size >= breakpoint.Medium
+    }"
+>
+    <div
+        class="description-text"
+        [ngClass]="{
+            small: size <= breakpoint.Small,
+            medium: size >= breakpoint.Medium
+        }"
+    >
+        <p class="bg-default">
+            Somos uma plataforma de streaming de filmes em domínio público.
+        </p>
+        <p class="bg-default" style="margin-bottom: 1rem">
+            Nosso objetivo é levar entretenimento e conhecimento para
+            <strong>todos</strong>.
+        </p>
+        <a
+            class="access-btn"
+            routerLink="/about"
+            [hidden]="size <= breakpoint.Medium"
+        >
+            Saiba mais
+        </a>
+        <a
+            class="access-btn"
+            routerLink="/library/movies"
+            [hidden]="size > breakpoint.Medium"
+        >
+            Acessar catálogo
+        </a>
+    </div>
 
-<img
-    class="main-image"
-    src="assets/images/landing-bg.png"
-    alt="OWL Stream - banner"
-/>
+    <div
+        class="square"
+        [ngClass]="{
+            small: size <= breakpoint.Small,
+            medium: size >= breakpoint.Medium
+        }"
+    >
+        <img
+            class="main-image"
+            src="assets/images/landing-bg.png"
+            alt="OWL Stream - banner"
+            [ngClass]="{
+                small: size <= breakpoint.Small,
+                medium: size >= breakpoint.Medium
+            }"
+        />
 
-<div class="square">
-    <div class="impact-text bg-default">
-        <h2>
-            De graça
-            <br />
-            e ilimitado<span class="square-dot">.</span>
-        </h2>
+        <div
+            class="impact-text"
+            [ngClass]="{
+                small: size <= breakpoint.Small,
+                medium: size >= breakpoint.Medium,
+                'bg-default': size > breakpoint.Small
+            }"
+        >
+            <h2>
+                De graça <br />
+                e ilimitado<span class="square-dot">.</span>
+            </h2>
+        </div>
     </div>
 </div>

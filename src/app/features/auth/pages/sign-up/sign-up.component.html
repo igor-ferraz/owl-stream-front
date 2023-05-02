@@ -1,13 +1,16 @@
 <div class="center-container">
     <form class="form" action="submit" ngSubmit="signUp()">
-        <div class="card">
+        <div class="card" [ngClass]="{ small: size === breakpoint.Small }">
             <div class="card-header">
                 <h1 class="card-title">
                     Crie sua conta<span class="square-dot">.</span>
                 </h1>
             </div>
             <div class="card-body">
-                <div class="input-wrapper-line">
+                <div
+                    class="input-wrapper-line"
+                    [ngClass]="{ small: size === breakpoint.Small }"
+                >
                     <div class="input-wrapper">
                         <label for="name">Nome</label>
                         <input
@@ -15,6 +18,7 @@
                             name="name"
                             placeholder="Nome"
                             autofocus
+                            [ngClass]="{ small: size === breakpoint.Small }"
                         />
                     </div>
                     <div class="input-wrapper">
@@ -23,14 +27,23 @@
                             type="text"
                             name="surname"
                             placeholder="Sobrenome"
+                            [ngClass]="{ small: size === breakpoint.Small }"
                         />
                     </div>
                 </div>
 
-                <div class="input-wrapper-line">
+                <div
+                    class="input-wrapper-line"
+                    [ngClass]="{ small: size === breakpoint.Small }"
+                >
                     <div class="input-wrapper">
                         <label for="email">E-mail</label>
-                        <input type="email" name="email" placeholder="E-mail" />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="E-mail"
+                            [ngClass]="{ small: size === breakpoint.Small }"
+                        />
                     </div>
                     <div class="input-wrapper">
                         <label for="email-confirm">Confirme seu e-mail</label>
@@ -38,17 +51,22 @@
                             type="email"
                             name="email-confirm"
                             placeholder="Confirme seu e-mail"
+                            [ngClass]="{ small: size === breakpoint.Small }"
                         />
                     </div>
                 </div>
 
-                <div class="input-wrapper-line">
+                <div
+                    class="input-wrapper-line"
+                    [ngClass]="{ small: size === breakpoint.Small }"
+                >
                     <div class="input-wrapper">
                         <label for="password">Senha</label>
                         <input
                             type="password"
                             name="password"
                             placeholder="Senha"
+                            [ngClass]="{ small: size === breakpoint.Small }"
                         />
                     </div>
                     <div class="input-wrapper">
@@ -59,27 +77,40 @@
                             type="password"
                             name="password-confirmation"
                             placeholder="Confirme sua senha"
+                            [ngClass]="{ small: size === breakpoint.Small }"
                         />
                     </div>
                 </div>
 
-                <div class="input-wrapper-line">
+                <div
+                    class="input-wrapper-line"
+                    [ngClass]="{ small: size === breakpoint.Small }"
+                >
                     <div class="input-wrapper">
                         <label for="birthdate">Data de nascimento</label>
                         <input
                             type="text"
                             name="birthdate"
                             placeholder="Data de nascimento"
+                            [ngClass]="{ small: size === breakpoint.Small }"
                         />
                     </div>
                     <div class="input-wrapper">
                         <label for="gender">Gênero</label>
-                        <input type="text" name="gender" placeholder="Gênero" />
+                        <input
+                            type="text"
+                            name="gender"
+                            placeholder="Gênero"
+                            [ngClass]="{ small: size === breakpoint.Small }"
+                        />
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <div class="input-wrapper-line">
+                <div
+                    class="input-wrapper-line"
+                    [ngClass]="{ small: size === breakpoint.Small }"
+                >
                     <div class="back-wrapper">
                         <a class="access-link color-default" (click)="back()">
                             Voltar
