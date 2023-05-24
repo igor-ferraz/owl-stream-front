@@ -6,6 +6,7 @@
     min-height: calc(100vh - 6rem);
     position: relative;
     overflow-x: auto;
+    overflow-y: hidden;
     @extend .bg-default;
 }
 
@@ -70,6 +71,7 @@
     border: 1px solid #eee;
     display: grid;
     gap: 1rem;
+    max-width: 42rem;
 
     &.small {
         padding: 1.5rem;
@@ -77,7 +79,7 @@
     }
 
     .card-header .card-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .card-footer,
@@ -96,4 +98,30 @@
             display: none;
         }
     }
+}
+
+.separator {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.message.error {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.message.error {
+    color: #e30000;
+}
+
+select.gray {
+    color: #757575;
+}
+
+input.error,
+select.error {
+    border: 1px solid #e30000;
 }

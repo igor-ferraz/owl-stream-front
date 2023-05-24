@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Breakpoint } from 'src/app/shared/models/responsive/breakpoint.enum';
 
 @Component({
@@ -10,6 +11,14 @@ import { Breakpoint } from 'src/app/shared/models/responsive/breakpoint.enum';
 export class ForgottenPasswordComponent implements OnInit {
     public breakpoint = Breakpoint;
     public size = Breakpoint.None;
+    public step = 0;
+
+    public form = new FormGroup({
+        email: new FormControl('', [
+            Validators.required,
+            Validators.email
+        ])
+    });
 
     constructor(private responsive: BreakpointObserver) { }
 
@@ -29,5 +38,14 @@ export class ForgottenPasswordComponent implements OnInit {
                 this.size = this.breakpoint.Large;
             }
         });
+    }
+
+    public next(): void {
+        if (this.form.valid) {
+            this.step++;
+        }
+        else {
+            console.log(this.form)
+        }
     }
 }

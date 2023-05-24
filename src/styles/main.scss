@@ -35,7 +35,8 @@ button:focus {
     outline: #8233c0 double 1px;
 }
 
-input {
+input,
+select {
     font-size: 1.2rem;
     padding: 1rem;
     border: 1.75px solid #555;
@@ -48,8 +49,18 @@ input {
     }
 }
 
+input {
+    max-height: 1.4rem;
+}
+
+select {
+    max-height: 3.5rem;
+}
+
 input:hover,
-input:focus {
+input:focus,
+select:hover,
+select:focus {
     outline-color: #8233c0;
 }
 

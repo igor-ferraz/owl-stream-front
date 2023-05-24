@@ -1,9 +1,9 @@
 <div class="center-container">
-    <form class="form" action="submit" ngSubmit="login()">
+    <form class="form" (ngSubmit)="login()" [formGroup]="form" #ngForm="ngForm">
         <div class="card" [ngClass]="{ small: size === breakpoint.Small }">
             <div class="card-header">
-                <h1 class="card-title">
-                    Acesse sua conta<span class="square-dot">.</span>
+                <h1 class="card-title text-center">
+                    Entrar<span class="square-dot">.</span>
                 </h1>
             </div>
             <div class="card-body">
@@ -13,9 +13,28 @@
                         type="email"
                         name="email"
                         placeholder="E-mail"
+                        formControlName="email"
                         autofocus
-                        [ngClass]="{ small: size === breakpoint.Small }"
+                        [ngClass]="{
+                            small: size === breakpoint.Small,
+                            error:
+                                ngForm.submitted && form.controls.email.errors
+                        }"
                     />
+                    <ng-container *ngIf="ngForm.submitted">
+                        <span
+                            *ngIf="form.controls.email.errors?.['required']"
+                            class="message error text-right"
+                        >
+                            E-mail obrigatório.
+                        </span>
+                        <span
+                            *ngIf="form.controls.email.errors?.['email']"
+                            class="message error text-right"
+                        >
+                            E-mail inválido.
+                        </span>
+                    </ng-container>
                 </div>
                 <div class="input-wrapper">
                     <label for="password">Senha</label>
@@ -23,29 +42,45 @@
                         type="password"
                         name="password"
                         placeholder="Senha"
-                        [ngClass]="{ small: size === breakpoint.Small }"
+                        [ngClass]="{
+                            small: size === breakpoint.Small,
+                            error:
+                                ngForm.submitted &&
+                                form.controls.password.errors
+                        }"
                     />
+                    <span
+                        class="message error text-right"
+                        *ngIf="ngForm.submitted && form.controls.password.errors?.['required']"
+                    >
+                        Senha obrigatória.
+                    </span>
                 </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="access-btn">Entrar</button>
                 <div class="info-wrapper">
+                    <hr class="separator" />
                     <div class="info">
-                        <p>Novo por aqui?</p>
-                        <a
-                            routerLink="/auth/sign-up"
-                            class="access-link color-default"
-                            >Crie uma conta</a
-                        >
+                        <p>
+                            <a
+                                routerLink="/auth/sign-up"
+                                class="access-link color-default"
+                            >
+                                Crie sua conta.
+                            </a>
+                        </p>
                     </div>
                     <div class="info">
-                        <p>Precisa de ajuda?</p>
-                        <a
-                            href
-                            routerLink="/auth/forgotten-password"
-                            class="access-link color-default"
-                            >Redefina a senha</a
-                        >
+                        <p>
+                            <a
+                                href
+                                routerLink="/auth/forgotten-password"
+                                class="access-link color-default"
+                            >
+                                Redefina sua senha.
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>

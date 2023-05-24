@@ -1,9 +1,14 @@
 <div class="center-container">
-    <form class="form" action="submit" ngSubmit="signUp()">
+    <form
+        class="form"
+        [formGroup]="form"
+        (ngSubmit)="signUp()"
+        #ngForm="ngForm"
+    >
         <div class="card" [ngClass]="{ small: size === breakpoint.Small }">
             <div class="card-header">
-                <h1 class="card-title">
-                    Crie sua conta<span class="square-dot">.</span>
+                <h1 class="card-title text-center">
+                    Criar conta<span class="square-dot">.</span>
                 </h1>
             </div>
             <div class="card-body">
@@ -16,19 +21,43 @@
                         <input
                             type="text"
                             name="name"
+                            formControlName="name"
                             placeholder="Nome"
                             autofocus
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.name.errors
+                            }"
                         />
+                        <span
+                            class="message error text-right"
+                            *ngIf="ngForm.submitted && form.controls.name.errors?.['required']"
+                        >
+                            Nome obrigatório.
+                        </span>
                     </div>
                     <div class="input-wrapper">
                         <label for="surname">Sobrenome</label>
                         <input
                             type="text"
                             name="surname"
+                            formControlName="surname"
                             placeholder="Sobrenome"
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.surname.errors
+                            }"
                         />
+                        <span
+                            class="message error text-right"
+                            *ngIf="ngForm.submitted && form.controls.surname.errors?.['required']"
+                        >
+                            Sobrenome obrigatório.
+                        </span>
                     </div>
                 </div>
 
@@ -41,18 +70,60 @@
                         <input
                             type="email"
                             name="email"
+                            formControlName="email"
                             placeholder="E-mail"
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.email.errors
+                            }"
                         />
+                        <ng-container *ngIf="ngForm.submitted">
+                            <span
+                                *ngIf="form.controls.email.errors?.['required']"
+                                class="message error text-right"
+                            >
+                                E-mail obrigatório.
+                            </span>
+                            <span
+                                *ngIf="form.controls.email.errors?.['email']"
+                                class="message error text-right"
+                            >
+                                E-mail inválido.
+                            </span>
+                        </ng-container>
                     </div>
                     <div class="input-wrapper">
-                        <label for="email-confirm">Confirme seu e-mail</label>
+                        <label for="emailConfirmation"
+                            >Confirme seu e-mail</label
+                        >
                         <input
                             type="email"
-                            name="email-confirm"
+                            name="emailConfirmation"
+                            formControlName="emailConfirmation"
                             placeholder="Confirme seu e-mail"
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.emailConfirmation.errors
+                            }"
                         />
+                        <ng-container *ngIf="ngForm.submitted">
+                            <span
+                                *ngIf="form.controls.emailConfirmation.errors?.['required']"
+                                class="message error text-right"
+                            >
+                                Confirmação obrigatória.
+                            </span>
+                            <span
+                                *ngIf="form.controls.emailConfirmation.errors?.['email']"
+                                class="message error text-right"
+                            >
+                                E-mail inválido.
+                            </span>
+                        </ng-container>
                     </div>
                 </div>
 
@@ -65,20 +136,44 @@
                         <input
                             type="password"
                             name="password"
+                            formControlName="password"
                             placeholder="Senha"
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.password.errors
+                            }"
                         />
+                        <span
+                            class="message error text-right"
+                            *ngIf="ngForm.submitted && form.controls.password.errors?.['required']"
+                        >
+                            Senha obrigatória.
+                        </span>
                     </div>
                     <div class="input-wrapper">
-                        <label for="password-confirmation"
+                        <label for="passwordConfirmation"
                             >Confirme sua senha</label
                         >
                         <input
                             type="password"
-                            name="password-confirmation"
+                            name="passwordConfirmation"
+                            formControlName="passwordConfirmation"
                             placeholder="Confirme sua senha"
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.passwordConfirmation.errors
+                            }"
                         />
+                        <span
+                            class="message error text-right"
+                            *ngIf="ngForm.submitted && form.controls.passwordConfirmation.errors?.['required']"
+                        >
+                            Confirmação obrigatória.
+                        </span>
                     </div>
                 </div>
 
@@ -89,20 +184,49 @@
                     <div class="input-wrapper">
                         <label for="birthdate">Data de nascimento</label>
                         <input
-                            type="text"
+                            type="date"
                             name="birthdate"
+                            formControlName="birthdate"
                             placeholder="Data de nascimento"
-                            [ngClass]="{ small: size === breakpoint.Small }"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.birthdate.errors
+                            }"
                         />
+                        <span
+                            class="message error text-right"
+                            *ngIf="ngForm.submitted && form.controls.birthdate.errors?.['required']"
+                        >
+                            Data de nascimento obrigatória.
+                        </span>
                     </div>
                     <div class="input-wrapper">
                         <label for="gender">Gênero</label>
-                        <input
-                            type="text"
+                        <select
                             name="gender"
-                            placeholder="Gênero"
-                            [ngClass]="{ small: size === breakpoint.Small }"
-                        />
+                            title="gender"
+                            formControlName="gender"
+                            [ngClass]="{
+                                small: size === breakpoint.Small,
+                                gray: !gender,
+                                error:
+                                    ngForm.submitted &&
+                                    form.controls.gender.errors
+                            }"
+                        >
+                            <option value="" disabled selected>Gênero</option>
+                            <option value="feminine">Feminino</option>
+                            <option value="masculine">Masculino</option>
+                            <option value="other">Outro</option>
+                        </select>
+                        <span
+                            class="message error text-right"
+                            *ngIf="ngForm.submitted && form.controls.gender.errors?.['required']"
+                        >
+                            Gênero obrigatório.
+                        </span>
                     </div>
                 </div>
             </div>
@@ -111,12 +235,25 @@
                     class="input-wrapper-line"
                     [ngClass]="{ small: size === breakpoint.Small }"
                 >
-                    <div class="back-wrapper">
+                    <button
+                        type="submit"
+                        class="access-btn"
+                        [hidden]="size > breakpoint.Small"
+                    >
+                        Cadastrar
+                    </button>
+                    <div order="2" class="back-wrapper">
                         <a class="access-link color-default" (click)="back()">
                             Voltar
                         </a>
                     </div>
-                    <button type="submit" class="access-btn">Cadastrar</button>
+                    <button
+                        type="submit"
+                        class="access-btn"
+                        [hidden]="size <= breakpoint.Small"
+                    >
+                        Cadastrar
+                    </button>
                 </div>
             </div>
         </div>
