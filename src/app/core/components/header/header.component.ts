@@ -55,15 +55,22 @@ export class HeaderComponent implements OnInit {
     // Large (min-width: 1280px) and (max-width: 1919.98px)
     ngOnInit(): void {
         this.responsive.observe([
+            Breakpoints.XSmall,
+            Breakpoints.Small,
             Breakpoints.Medium,
             Breakpoints.Large
         ]).subscribe(result => {
             const breakpoints = result.breakpoints;
 
-            this.size = this.breakpoint.Small;
+            this.size = this.breakpoint.XSmall;
             this.links = this.allLinks;
 
-            if (breakpoints[Breakpoints.Medium]) {
+            console.log(breakpoints);
+
+            if (breakpoints[Breakpoints.Small]) {
+                this.size = this.breakpoint.Small;
+            }
+            else if (breakpoints[Breakpoints.Medium]) {
                 this.size = this.breakpoint.Medium;
                 this.links = this.allLinks;
             }
