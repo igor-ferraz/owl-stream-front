@@ -27,7 +27,8 @@ export class SignInComponent implements OnInit {
     ngOnInit(): void {
         this.responsive.observe([
             Breakpoints.Medium,
-            Breakpoints.Large
+            Breakpoints.Large,
+            Breakpoints.XLarge
         ]).subscribe(result => {
             const breakpoints = result.breakpoints;
 
@@ -38,6 +39,9 @@ export class SignInComponent implements OnInit {
             }
             else if (breakpoints[Breakpoints.Large]) {
                 this.size = this.breakpoint.Large;
+            }
+            else if (breakpoints[Breakpoints.XLarge]) {
+                this.size = this.breakpoint.XLarge;
             }
         });
     }

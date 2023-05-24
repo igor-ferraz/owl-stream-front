@@ -58,14 +58,13 @@ export class HeaderComponent implements OnInit {
             Breakpoints.XSmall,
             Breakpoints.Small,
             Breakpoints.Medium,
-            Breakpoints.Large
+            Breakpoints.Large,
+            Breakpoints.XLarge
         ]).subscribe(result => {
             const breakpoints = result.breakpoints;
 
             this.size = this.breakpoint.XSmall;
             this.links = this.allLinks;
-
-            console.log(breakpoints);
 
             if (breakpoints[Breakpoints.Small]) {
                 this.size = this.breakpoint.Small;
@@ -74,12 +73,12 @@ export class HeaderComponent implements OnInit {
                 this.size = this.breakpoint.Medium;
                 this.links = this.allLinks;
             }
-            else if (breakpoints[Breakpoints.Large]) {
+            else if (breakpoints[Breakpoints.Large] || breakpoints[Breakpoints.XLarge]) {
                 this.menuVisible = false;
                 this.links = [...this.allLinks];
                 this.links.shift();
                 this.links.pop();
-                this.size = this.breakpoint.Large;
+                this.size = breakpoints[Breakpoints.Large] ? this.breakpoint.Large : this.breakpoint.XLarge;
             }
         });
     }

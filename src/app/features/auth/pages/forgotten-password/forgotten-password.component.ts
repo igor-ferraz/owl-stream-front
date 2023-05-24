@@ -25,7 +25,8 @@ export class ForgottenPasswordComponent implements OnInit {
     ngOnInit(): void {
         this.responsive.observe([
             Breakpoints.Medium,
-            Breakpoints.Large
+            Breakpoints.Large,
+            Breakpoints.XLarge
         ]).subscribe(result => {
             const breakpoints = result.breakpoints;
 
@@ -37,15 +38,15 @@ export class ForgottenPasswordComponent implements OnInit {
             else if (breakpoints[Breakpoints.Large]) {
                 this.size = this.breakpoint.Large;
             }
+            else if (breakpoints[Breakpoints.XLarge]) {
+                this.size = this.breakpoint.XLarge;
+            }
         });
     }
 
     public next(): void {
         if (this.form.valid) {
             this.step++;
-        }
-        else {
-            console.log(this.form)
         }
     }
 }
