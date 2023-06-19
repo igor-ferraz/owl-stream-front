@@ -10,6 +10,7 @@ import { Movie } from 'src/app/shared/models/movie.model';
 })
 export class PlayComponent implements OnInit {
     public movie: Movie | undefined;
+    private alreadyClicked = false;
 
     constructor(private route: ActivatedRoute, private moviesService: MoviesService) { }
 
@@ -21,5 +22,13 @@ export class PlayComponent implements OnInit {
                 this.movie = this.moviesService.get(id);
             }
         });
+    }
+
+    public toggleVideoFullscreen(): void {
+        const videoElement = document.getElementsByTagName("video")[0];
+
+        if (videoElement.requestFullscreen) {
+            videoElement.requestFullscreen();
+        }
     }
 }

@@ -2,18 +2,27 @@
     <div class="card">
         <div class="card-header">
             <h1 class="card-title text-center">
-                OWL Stream<span class="square-dot">.</span>
+                <!-- OWL Stream<span class="square-dot">.</span> -->
+                <img
+                    class="logo"
+                    src="assets/images/logos/logo-purple.svg"
+                    alt="OWL Stream"
+                    [ngClass]="{ xsmall: size <= breakpoint.XSmall }"
+                />
             </h1>
         </div>
         <div class="card-body">
             <p>
-                Somos um serviço de streaming gratuito e queremos facilitar o
-                acesso a filmes em domínio público.<br />
+                Somos uma plataforma de inovação e queremos facilitar o acesso
+                dos brasileiros à cultura. Atualmente, disponibilizamos um
+                serviço de streaming de filmes em
+                <strong>domínio público</strong>.
             </p>
             <p>
-                A plataforma estará em <strong>evolução contínua</strong>. Isto
-                é, aumentaremos nosso acervo de mídias e lançaremos novas
-                funcionalidades para democratizar o acesso à cultura.
+                A plataforma estará em <strong>constante evolução</strong>,
+                aumentando a quantidade de títulos disponíveis e lançando novas
+                funcionalidades, sempre visando democratizar o acesso à
+                entretenimento e cultura.
             </p>
         </div>
         <div class="card-footer">

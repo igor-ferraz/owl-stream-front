@@ -7,14 +7,6 @@
         z-index: 0;
     }
 
-    .overlay:hover {
-        background-color: #00000099;
-
-        p {
-            color: #fff;
-        }
-    }
-
     .overlay {
         background-color: transparent;
         position: absolute;
@@ -32,12 +24,23 @@
         transition: all 0.3s;
 
         p {
-            font-weight: 600;
+            user-select: none;
+            text-transform: uppercase;
             font-size: 2rem;
             color: transparent;
             text-align: center;
             cursor: default;
             transition: all 0.3s;
+        }
+    }
+}
+
+.container:hover {
+    .overlay {
+        background-color: #00000099;
+
+        p {
+            color: #fff;
         }
     }
 }

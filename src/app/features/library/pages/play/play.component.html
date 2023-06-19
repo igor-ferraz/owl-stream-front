@@ -8,7 +8,7 @@
         <source src="{{ movie?.url }}" type="video/mp4" width="100%" />
         Seu navegador não oferece suporte a esse vídeo.
     </video>
-    <div class="overlay">
-        <p>{{ movie?.title }}</p>
+    <div class="overlay" (dblclick)="toggleVideoFullscreen()">
+        <p>{{ movie?.title }} ({{ movie?.launchDate | date : "yyyy" }})</p>
     </div>
 </div>
