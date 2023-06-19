@@ -1,6 +1,6 @@
 <div class="category-section">
     <div class="category-title">
-        <h1>{{ title }}</h1>
+        <h1 class="title">{{ title }}</h1>
     </div>
     <div class="category-body">
         <div
@@ -12,11 +12,23 @@
             </a>
         </div>
         <div class="movie-list" [id]="movieListIdSuffix + id">
-            <div class="movie-container" *ngFor="let movie of movies">
-                <h2>{{ movie.title }}</h2>
-                <div class="movie-cover"></div>
-                <div class="movie-info"></div>
-            </div>
+            <a
+                class="movie-container"
+                *ngFor="let movie of movies"
+                [routerLink]="['/library/movies/', movie.id]"
+            >
+                <h2 class="movie-title">{{ movie.title }}</h2>
+                <div
+                    class="movie-cover"
+                    [ngStyle]="{
+                        'background-image':
+                            'url(&quot;' +
+                            imagePrefix +
+                            movie.id +
+                            '.jpg&quot;)'
+                    }"
+                ></div>
+            </a>
         </div>
         <div class="arrow-container arrow-container-right">
             <a (click)="scroll(id, 'right')">

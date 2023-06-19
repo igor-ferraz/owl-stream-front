@@ -1,5 +1,39 @@
-<os-movies-carousel
-    *ngFor="let category of categories"
-    [title]="category.name"
-    [movies]="category.movies"
-></os-movies-carousel>
+<div class="center-container">
+    <div class="card">
+        <div class="card-header">
+            <div class="movie-cover-overlay">
+                <h1 class="title">
+                    {{ movie?.title }}<span class="square-dot">.</span>
+                </h1>
+                <div class="movie-infos">
+                    <ul>
+                        <li [hidden]="!movie?.launchDate">
+                            {{ movie?.launchDate | date : "yyyy" }}
+                        </li>
+                        <li [hidden]="!movie?.durationInMinutes">
+                            {{ movie?.durationInMinutes }} minutos
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="movie-cover"
+                [ngStyle]="{
+                    'background-image':
+                        'url(&quot;' + imagePrefix + movie?.id + '.jpg&quot;)'
+                }"
+            ></div>
+        </div>
+        <p class="synopsis" [hidden]="!movie?.synopsis">
+            {{ movie?.synopsis }}
+        </p>
+        <div class="movie-buttons">
+            <a class="access-btn" [routerLink]="['/library/play', movie?.id]">
+                <i class="fa fa-play"></i>&nbsp;Assistir
+            </a>
+            <!-- <a class="access-btn">
+                <i class="fa fa-share"></i>
+            </a> -->
+        </div>
+    </div>
+</div>

@@ -14,6 +14,7 @@ export class MoviesCarouselComponent {
     public loading = true;
     public movieListIdSuffix = 'movieList-';
     public arrowLeftHidden = true;
+    public imagePrefix = "https://owl-stream-s3.s3.sa-east-1.amazonaws.com/pictures/";
 
     private defaultScrollSize = 400;
 
@@ -43,5 +44,5 @@ export class MoviesCarouselComponent {
         });
 
         this.arrowLeftHidden = false;
-    }
+    };
 }

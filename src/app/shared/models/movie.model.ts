@@ -1,5 +1,9 @@
 export interface Movie {
     id: string;
+    active?: true;
     title: string;
-    duration: number;
+    durationInMinutes: number;
+    synopsis?: string;
+    launchDate?: Date;
+    creationDate?: Date;
 }

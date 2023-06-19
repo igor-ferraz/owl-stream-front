@@ -25,18 +25,8 @@ export class HeaderComponent implements OnInit {
             icon: ''
         },
         {
-            name: 'Filmes',
-            url: '/library/movies',
-            icon: ''
-        },
-        {
-            name: 'Documentários',
-            url: '/library/movies?genres=4',
-            icon: ''
-        },
-        {
-            name: 'Séries',
-            url: '/library/series',
+            name: 'Acervo',
+            url: '/library',
             icon: ''
         },
         {
@@ -77,7 +67,7 @@ export class HeaderComponent implements OnInit {
                 this.menuVisible = false;
                 this.links = [...this.allLinks];
                 this.links.shift();
-                this.links.pop();
+                // this.links.pop();
                 this.size = breakpoints[Breakpoints.Large] ? this.breakpoint.Large : this.breakpoint.XLarge;
             }
         });
