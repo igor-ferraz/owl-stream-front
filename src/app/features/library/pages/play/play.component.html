@@ -1,0 +1,14 @@
+<div class="container">
+    <video
+        autoplay
+        controls
+        controlsList="nodownload"
+        title="{{ movie?.title }}"
+    >
+        <source src="{{ movie?.url }}" type="video/mp4" width="100%" />
+        Seu navegador não oferece suporte a esse vídeo.
+    </video>
+    <div class="overlay">
+        <p>{{ movie?.title }}</p>
+    </div>
+</div>
