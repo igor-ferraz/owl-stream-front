@@ -22,7 +22,9 @@ export class SignInComponent implements OnInit {
         ])
     })
 
-    constructor(private responsive: BreakpointObserver) { }
+    constructor(
+        private responsive: BreakpointObserver
+    ) { }
 
     ngOnInit(): void {
         this.responsive.observe([
