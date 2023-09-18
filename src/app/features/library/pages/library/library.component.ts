@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MoviesService } from 'src/app/core/services/movies.service';
-import { Cinelist } from 'src/app/shared/models/cinelist.model';
+import { Cinelist2 } from 'src/app/shared/models/cinelist.model';
 
 @Component({
     selector: 'app-movies',
@@ -8,7 +8,7 @@ import { Cinelist } from 'src/app/shared/models/cinelist.model';
     styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent {
-    public categories: Cinelist[] = [];
+    public categories: Cinelist2[] = [];
 
     constructor(private moviesService: MoviesService) { }
 

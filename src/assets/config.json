@@ -1,3 +1,4 @@
 {
-    "apiBaseUrl": "https://app-u3zd5anyvxese.azurewebsites.net/api"
+    "apiBaseUrlLocal": "https://localhost:5001",
+    "apiBaseUrl": "https://app-u3zd5anyvxese.azurewebsites.net"
 }
