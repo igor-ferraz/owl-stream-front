@@ -8,6 +8,8 @@ import { registerLocaleData } from '@angular/common';
 import { ConfigurationService } from './core/services/configuration.service';
 
 import localePt from '@angular/common/locales/pt';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpCredentialInterceptor } from './core/interceptors/http-credential.interceptor';
 
 registerLocaleData(localePt);
 
@@ -30,6 +32,11 @@ export const configurationFactory = (configurationService: ConfigurationService)
             provide: APP_INITIALIZER,
             useFactory: configurationFactory,
             deps: [ConfigurationService],
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpCredentialInterceptor,
             multi: true
         }
     ],

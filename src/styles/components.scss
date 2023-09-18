@@ -32,10 +32,33 @@
     background: none;
 }
 
-.access-btn:hover,
-.access-btn:focus {
+.access-btn.animated {
+    max-height: 2.7rem;
+    overflow: hidden;
+}
+
+.access-btn:not(:disabled):hover,
+.access-btn:not(:disabled):focus {
     background-color: #8233c0 !important;
     color: #fff;
+}
+
+.access-btn:disabled {
+    cursor: default;
+    background-color: #8233c0;
+    color: #fff;
+}
+
+.access-btn.animated > .btn-item {
+    transition: all 0.3s;
+}
+
+.access-btn.animated > .btn-item:not(.hidden):not(:nth-child(1)) {
+    transform: translateY(-1.2rem);
+}
+
+.access-btn.animated > .btn-item.hidden {
+    transform: translateY(2rem);
 }
 
 .access-link {
@@ -84,7 +107,8 @@
 
     .card-footer,
     .card-body {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 1rem;
     }
 }
@@ -105,6 +129,11 @@
     border: 0;
     height: 1px;
     background-color: #ccc;
+}
+
+.error-wrapper {
+    max-width: 22rem;
+    text-align: center;
 }
 
 .message.error {

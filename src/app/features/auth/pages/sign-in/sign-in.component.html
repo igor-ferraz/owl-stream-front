@@ -57,9 +57,26 @@
                         Senha obrigatória.
                     </span>
                 </div>
+                <div class="error-wrapper" *ngIf="state.errorState?.error">
+                    <span class="message error text-right">
+                        {{ state.errorState?.message }}
+                    </span>
+                </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="access-btn">Entrar</button>
+                <button
+                    type="submit"
+                    class="access-btn animated"
+                    [disabled]="state.loading"
+                    [class]="{ pulse: state.loading }"
+                >
+                    <div class="btn-item" [class]="{ hidden: state.loading }">
+                        Entrar
+                    </div>
+                    <div class="btn-item" [class]="{ hidden: !state.loading }">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    </div>
+                </button>
                 <div class="info-wrapper">
                     <hr class="separator" />
                     <div class="info">

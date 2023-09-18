@@ -1,7 +1,12 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { Breakpoint } from 'src/app/shared/models/responsive/breakpoint.enum';
+import { LoginData } from 'src/app/shared/models/security/login-data.model';
+import { PageState } from 'src/app/shared/models/states/page-state.model';
 
 @Component({
     selector: 'app-sign-in',
@@ -11,6 +16,13 @@ import { Breakpoint } from 'src/app/shared/models/responsive/breakpoint.enum';
 export class SignInComponent implements OnInit {
     public breakpoint = Breakpoint;
     public size = Breakpoint.None;
+
+    public state: Partial<PageState> = {
+        loading: false,
+        errorState: {
+            error: false
+        }
+    };
 
     public form = new FormGroup({
         email: new FormControl('', [
@@ -23,7 +35,9 @@ export class SignInComponent implements OnInit {
     })
 
     constructor(
-        private responsive: BreakpointObserver
+        private responsive: BreakpointObserver,
+        private router: Router,
+        private authService: AuthService
     ) { }
 
     ngOnInit(): void {
@@ -49,6 +63,26 @@ export class SignInComponent implements OnInit {
     }
 
     public login(): void {
+        if (this.form.valid) {
+            this.state.loading = true;
 
+            this.authService.login(this.form.value as LoginData)
+                .subscribe({
+                    next: () => {
+                        this.router.navigateByUrl("/library");
+                    },
+                    error: (response) => {
+                        if (response.error) {
+                            this.state.errorState = {
+                                error: true,
+                                message: response.error
+                            };
+                        }
+                    }
+                })
+                .add(() => {
+                    this.state.loading = false
+                });
+        }
     }
 }
