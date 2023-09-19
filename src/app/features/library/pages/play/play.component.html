@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" *ngIf="movie">
     <video
         autoplay
         controls
         controlsList="nodownload"
-        title="{{ movie?.title }}"
+        title="{{ movie.title }}"
     >
-        <source src="{{ movie?.url }}" type="video/mp4" width="100%" />
+        <source src="{{ movie.url }}" type="video/mp4" width="100%" />
         Seu navegador não oferece suporte a esse vídeo.
     </video>
     <div class="overlay" (dblclick)="toggleVideoFullscreen()">
-        <p>{{ movie?.title }} ({{ movie?.launchDate | date : "yyyy" }})</p>
+        <p>{{ movie.title }} ({{ movie.launchDate | date : "yyyy" }})</p>
     </div>
 </div>

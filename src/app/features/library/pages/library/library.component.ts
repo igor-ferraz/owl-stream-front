@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MoviesService } from 'src/app/core/services/movies.service';
-import { Cinelist2 } from 'src/app/shared/models/cinelist.model';
+import { CinelistsService } from 'src/app/core/services/cinelists.service';
+import { Cinelist } from 'src/app/shared/models/cinelists/cinelist.model';
+import { PageState } from 'src/app/shared/models/states/page-state.model';
 
 @Component({
     selector: 'app-movies',
@@ -8,11 +9,28 @@ import { Cinelist2 } from 'src/app/shared/models/cinelist.model';
     styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent {
-    public categories: Cinelist2[] = [];
+    public cinelists: Cinelist[] = [];
 
-    constructor(private moviesService: MoviesService) { }
+    public state: Partial<PageState> = {
+        loading: true,
+        errorState: {
+            error: false
+        }
+    };
+
+    constructor(private cinelistsService: CinelistsService) { }
 
     ngOnInit(): void {
-        this.categories = this.moviesService.getCinelist();
+        this.cinelistsService.get().subscribe({
+            next: (cinelists) => {
+                this.cinelists = cinelists;
+            },
+            error: (error) => {
+                this.state.errorState = {
+                    error: true,
+                    message: error?.message
+                }
+            }
+        }).add(() => this.state.loading = false);
     }
 }

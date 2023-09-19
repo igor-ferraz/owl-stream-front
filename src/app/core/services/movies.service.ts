@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Cinelist2 } from 'src/app/shared/models/cinelist.model';
 import { Movie } from 'src/app/shared/models/movie.model';
+import { ConfigurationService } from './configuration.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class MoviesService {
+    private routePrefix = "movies";
 
-    constructor() { }
+    constructor(
+        private configurationService: ConfigurationService,
+        private httpClient: HttpClient
+    ) { }
 
-    public getCinelist(): Cinelist2[] {
-        return [];
-
-    }
-
-    public get(id: string): Movie | undefined {
-        return undefined;
+    public get(id: string): Observable<Movie> {
+        const url = `${this.configurationService.apiBaseUrl}/${this.routePrefix}/${id}`;
+        return this.httpClient.get<Movie>(url);
     }
 }
