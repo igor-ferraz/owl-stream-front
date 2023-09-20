@@ -3,7 +3,10 @@
         <h1 class="title">{{ cinelist.name }}</h1>
         <small>{{ cinelist.description }}</small>
     </div>
-    <div class="category-body">
+    <div
+        class="category-body"
+        [style]="{ 'margin-left': scrollable ? '-2rem' : '0' }"
+    >
         <div
             class="arrow-container arrow-container-left"
             [ngClass]="{ 'opacity-0': arrowLeftHidden }"

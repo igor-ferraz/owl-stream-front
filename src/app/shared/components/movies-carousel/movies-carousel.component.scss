@@ -17,6 +17,10 @@
         }
     }
 
+    .category-body {
+        display: flex;
+    }
+
     .movie-list {
         display: inline-flex;
         overflow-x: hidden;
@@ -73,8 +77,6 @@
     }
 
     .arrow-container {
-        position: absolute;
-        top: 4.65rem;
         height: 100%;
         text-transform: uppercase;
         font-size: 2rem;

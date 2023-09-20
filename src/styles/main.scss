@@ -27,6 +27,7 @@ a,
 button,
 a:hover,
 button:hover {
+    appearance: none;
     -webkit-appearance: none;
     outline: none;
 }

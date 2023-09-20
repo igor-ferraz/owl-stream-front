@@ -37,8 +37,8 @@
     overflow: hidden;
 }
 
-.access-btn:not(:disabled):hover,
-.access-btn:not(:disabled):focus {
+.access-btn:not(:disabled):not(.skeleton):hover,
+.access-btn:not(:disabled):not(.skeleton):focus {
     background-color: #8233c0 !important;
     color: #fff;
 }
@@ -47,6 +47,12 @@
     cursor: default;
     background-color: #8233c0;
     color: #fff;
+}
+
+.access-btn.skeleton {
+    border-color: transparent;
+    pointer-events: none;
+    cursor: default;
 }
 
 .access-btn.animated > .btn-item {
@@ -144,6 +150,21 @@
 
 .message.error {
     color: #e30000;
+}
+
+.skeleton {
+    background-color: #eee;
+    background-image: linear-gradient(
+        to right,
+        #eee 0%,
+        rgba(0, 0, 0, 0.05) 20%,
+        #ddd 40%,
+        #eee 100%
+    );
+    background-repeat: no-repeat;
+    color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 select.gray {

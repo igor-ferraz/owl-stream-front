@@ -12,6 +12,12 @@ import { PageState } from 'src/app/shared/models/states/page-state.model';
 export class MoviesComponent implements OnInit {
     public imagePrefix = "https://owl-stream-s3.s3.sa-east-1.amazonaws.com/pictures/";
     public movie: Movie | undefined;
+    public mockedMovie: Partial<Movie> = {
+        title: 'Filme para carregamento',
+        launchDate: new Date(),
+        durationInMinutes: 100,
+        synopsis: 'Esse filme existe apenas para exibir o skeleton durante o carregamento.'
+    };
 
     public state: Partial<PageState> = {
         loading: true,

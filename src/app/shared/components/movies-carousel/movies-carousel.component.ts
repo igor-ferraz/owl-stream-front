@@ -14,7 +14,7 @@ export class MoviesCarouselComponent {
 
     public arrowLeftHidden = true;
     public imagePrefix = "https://owl-stream-s3.s3.sa-east-1.amazonaws.com/pictures/";
-    public scrollable: boolean = false;
+    public scrollable: boolean = true;
 
     public state: Partial<PageState> = {
         loading: this.loading,
@@ -28,6 +28,9 @@ export class MoviesCarouselComponent {
 
     ngOnInit() {
         this.resizeSubscription$ = fromEvent(window, 'resize').subscribe(() => { this.checkIsScrollable() });
+    }
+
+    ngAfterViewInit() {
         this.checkIsScrollable();
     }
 
